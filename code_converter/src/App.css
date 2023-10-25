@@ -60,7 +60,7 @@ textarea {
   display: flex;
   justify-content: start;
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding: 10px 10px;
   box-sizing: border-box;
 }
