@@ -5,13 +5,35 @@ function CodeConvert() {
   const [convertedCode, setConvertedCode] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleConvert = () => {};
+  const handleConvert = () => {
+    setLoading(true);
+    axios
+      .post("http://localhost:8000/convert", { code: inputCode })
+      .then((response) => {
+        setConvertedCode(response.data.convertedCode);
+      })
+      .catch((error) => {
+        console.error("Error converting code:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <>
       <div className="code_converter_main">
         <h1>Code Converter</h1>
-
+        <div className="heading_child">
+          <select name="" id="">
+            <option value="" hidden>
+              Select language
+            </option>
+            <option value="">Python</option>
+            <option value="">Java</option>
+            <option value="">JavaScript</option>
+          </select>
+        </div>
         <div className="code_converter_child">
           <div className="code_converter_child_left">
             <div>
