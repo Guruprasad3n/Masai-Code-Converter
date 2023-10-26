@@ -6,7 +6,6 @@ const dotenv = require("dotenv").config();
 const app = express();
 
 const API_KEY = process.env.OPENAI_API_KEY;
-const ap = process.env.API
 
 app.use(cors());
 app.use(express.json());
@@ -15,14 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.PORT || 5000;
 
 app.get("/", async (req, res) => {
-  res.status(200).send(`Welcome to Home Page..! ${API_KEY} `);
-  // console.log(process.env.API)
-
-
+  res.status(200).send("Welcome to Home Page..!");
 });
-
-
-
 
 // Chat GPT Post Request
 app.post("/convert", async (req, res) => {
@@ -30,10 +23,10 @@ app.post("/convert", async (req, res) => {
 
   try {
     const response = await axios.post(
-      "https://api.openai.com/v1/engines/text-davinci-003/completions",
+      "https://api.openai.com/v1/engines/text-davinci-002/completions",
       {
         prompt: `Convert This ${code} to ${lang} Programming language`,
-        max_tokens: 100,
+        max_tokens: 500,
         temperature: 1,
       },
       {

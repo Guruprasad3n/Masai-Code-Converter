@@ -7,18 +7,18 @@ function CodeConvert() {
   const [selectLang, setSelectlang] = useState("");
   const [loading, setLoading] = useState(false);
 
-//   , {
-//     code: inputCode,
-//     lang: selectlang,
-//   }
-//   http://localhost:8000/convert?code${inputCode}&lang=${selectlang}
+  //   , {
+  //     code: inputCode,
+  //     lang: selectlang,
+  //   }
+  // https://tame-pear-panda-wrap.cyclic.app/convert
+  //   http://localhost:8000/convert?code${inputCode}&lang=${selectlang}
   const handleConvert = () => {
-    
     setLoading(true);
     axios
-      .post(` https://tame-pear-panda-wrap.cyclic.app/convert`,{
+      .post(`http://localhost:8000/convert`, {
         code: inputCode,
-        lang:selectLang
+        lang: selectLang,
       })
       .then((response) => {
         setConvertedCode(response.data.convertedCode);
@@ -40,7 +40,9 @@ function CodeConvert() {
             name="selectlang"
             id="selectlang"
             value={selectLang}
-            onChange={(e) =>{ setSelectlang(e.target.value), console.log("Cliccked")}}
+            onChange={(e) => {
+              setSelectlang(e.target.value), console.log("Cliccked");
+            }}
           >
             <option value="" hidden>
               Select language
@@ -49,27 +51,28 @@ function CodeConvert() {
             <option value="java">Java</option>
             <option value="javascript">JavaScript</option>
           </select>
+          <button onClick={handleConvert} disabled={loading}>
+                {loading ? "Converting..." : "Convert Code"}
+              </button>
         </div>
         <div className="code_converter_child">
           <div className="code_converter_child_left">
             <div>
               <textarea
                 placeholder="Enter code here"
-                rows="30"
+                rows="32"
                 cols="50"
                 value={inputCode}
                 onChange={(e) => setInputCode(e.target.value)}
               ></textarea>
             </div>
             <div>
-              <button onClick={handleConvert} disabled={loading}>
-                {loading ? "Converting..." : "Convert Code"}
-              </button>
+             
             </div>
           </div>
           <div className="code_converter_child_right">
             <h2>Converted Code</h2>
-            <pre>{convertedCode}</pre>
+            <pre  >{convertedCode}</pre>
           </div>
         </div>
       </div>
@@ -78,14 +81,6 @@ function CodeConvert() {
 }
 
 export default CodeConvert;
-
-
-
-
-
-
-
-
 
 // import axios from "axios";
 // import React, { useState } from "react";
