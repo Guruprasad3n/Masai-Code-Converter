@@ -26,7 +26,7 @@ function AiContentFile() {
 
     try {
       const response = await axios.post(
-        "https://peach-tick-robe.cyclic.app/summarization",
+        "http://localhost:8000/summarization",
         formData,
         {
           headers: {
