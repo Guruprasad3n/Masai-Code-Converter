@@ -1,0 +1,49 @@
+/* UserInput.css */
+.user-input-container {
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+    color: rgb(87, 86, 86);
+  }
+  
+  .user-input-container input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .user-input-container button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+
+
+
+  /* ------------------------- */
+  /* Conversation.css */
+.conversation-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 200px;
+    margin: 20px;
+    overflow-y:scroll;
+    color: rgb(255, 255, 255);
+  }
+  
+  .message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+  }
+  
